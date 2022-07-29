@@ -2,6 +2,10 @@
 
 import random
 
+# Alternatively, the list of random words and ASCII art would be imported from another file as follows:
+# from hangman_words import word_list
+# from hangman_art import logo, stages
+
 stages = ['''
   +---+
   |   |
@@ -91,6 +95,7 @@ for letters in chosen_word:
 while not game_over:
   guess = input("Guess a letter: ").lower()
   dash = "_"
+      
   #Check guessed letter
   for position in range(len(chosen_word)):
     letter = chosen_word[position]
@@ -102,9 +107,13 @@ while not game_over:
     game_over = True
   
   if guess not in chosen_word:
-    lives -= 1
-    letters_guessed.append(guess)
-    print(f"The letter is not in the word. You have {lives} lives left. Letters guessed : {letters_guessed}")
+    if guess not in letters_guessed:
+      lives -= 1
+      letters_guessed.append(guess)
+      print(f"The letter is not in the word. You have {lives} lives left. Letters guessed : {letters_guessed}")
+    else:
+      print("You already guessed that letter")
+      
     print(stages[lives])
     if lives == 0:
       print(f"You have {lives} lives left. You lose! :(")
