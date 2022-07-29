@@ -63,6 +63,17 @@ stages = ['''
 =========
 ''']
 
+logo = ''' 
+ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/    '''
+
+
 #word list for game.
 word_list = ["cat", "pig", "horse", "rabbit", "dog", "goat", "ant", "rat", "mouse", "duck", "goose", "turkey", "chicken", "buffalo", "bird", "sheep", "monkey", "bear", "anaconda", "lion", "tiger", "slug", "cow", "squirell", "turtle", "dolphin", "elephant", "koala", "parrot", "frog", "bee", "emu", "zebra"]
 
@@ -91,6 +102,8 @@ for letters in chosen_word:
 # The display will show the gues in the correct position and show "_" for the unguessed letters.
 # print the display
 # if there are no empty spaces left, the user has won. The has_won variable is now true. 
+
+print(logo)
 
 while not game_over:
   guess = input("Guess a letter: ").lower()
