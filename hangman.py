@@ -16,18 +16,32 @@ print(guess in chosen_word)
   
 # Step 2: Create a variable named display that will be a list. 
 # for every letter in the chosen_word add a "_" to the display.
-# Loop through the chosen word, and if the guess == the chosen word, get its indices.
-# With the indices, add the guess to the display. 
-# The display will show the gues in the correct position and show "_" for the unguessed letters.
 
 display = []
 
 for letters in chosen_word:
   display.append("_")
 
-for i in range(len(chosen_word)):
-  if chosen_word[i] == guess:
-    display[i] = guess
-  else:
-      # print("Wrong")
-print(display)
+
+# Step 3: Declare a variable named has_won. It will hold a value of false since the user hasn't won yet.
+# declare a while loop. It will have an input where the user will guess a letter.
+# Loop through the chosen word, and if the guess == the chosen word, get its indices.
+# With the indices, add the guess to the display. 
+# The display will show the gues in the correct position and show "_" for the unguessed letters.
+# print the display
+# if there are no empty spaces left, the user has won. The has_won variable is now true. 
+
+has_won = False
+
+while not has_won:
+  guess = input("Guess a letter: ").lower()
+  dash = "_"
+  #Check guessed letter
+  for position in range(word_length):
+    letter = chosen_word[position]
+    if letter == guess:
+        display[position] = letter
+        print(display)
+    if dash not in display:
+      print(f"You win! the word was {chosen_word}")
+      has_won = True
