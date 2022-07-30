@@ -2,7 +2,7 @@ direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
   
 
 def caesar(text, shift, direction):
@@ -11,7 +11,7 @@ def caesar(text, shift, direction):
     shift *= -1 # makes this a negative number if user chooses decode
   for letter in text:
     position = alphabet.index(letter)
-    new_position = position + shift
+    new_position = (position + shift) % 26 # the % is going to make sure it restarts a position 0 once it hits the 26th index.
     cipher_text += alphabet[new_position]
   print(f"The {direction}d text is {cipher_text}")
   
