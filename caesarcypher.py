@@ -8,7 +8,7 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 def caesar(text, shift, direction):
   cipher_text = ""
   if direction == "decode":
-    shift *= -1
+    shift *= -1 # makes this a negative number if user chooses decode
   for letter in text:
     position = alphabet.index(letter)
     new_position = position + shift
