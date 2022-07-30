@@ -16,24 +16,30 @@ a8"     "" 88 88P'    "8a 88P'    "8a a8P_____88 88P'   "Y8
               88                                             
               88           
 """  
-
-print(logo)
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
-
-
 def caesar(text, shift, direction):
   cipher_text = ""
   if direction == "decode":
     shift *= -1 # makes this a negative number if user chooses decode
   for char in text:
     if char in alphabet:
-      position = alphabet.index(letter)
+      position = alphabet.index(char)
       new_position = (position + shift) % 26 # the % is going to make sure it restarts a position 0 once it hits the 26th index.
       cipher_text += alphabet[new_position]
     else:
       cipher_text += char
   print(f"The {direction}d text is {cipher_text}")
+
+play_again = True
+
+while play_again:
+  print(logo)
+  direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+  text = input("Type your message:\n").lower()
+  shift = int(input("Type the shift number:\n"))
+
+  caesar(text, shift, direction)
   
-caesar(text, shift, direction)
+  user_decision = input("Do you want to play again? Types Yes or No \n").lower()
+  if user_decision == "no":
+    play_again = False
+    print("Thank you for trying out my caesar cypher's program")
