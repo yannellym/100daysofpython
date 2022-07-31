@@ -1,4 +1,3 @@
-from turtle import clear
 
 logo = '''
                          ___________
@@ -15,12 +14,14 @@ logo = '''
 '''
 print(logo)
 print("Welcome to the secret auction program")
-
 bidders = {}
 
 active_auction = True
 highest_bidder = ""
 highest_bid = 0
+
+def clear():
+    print("\n" * 100)
 
 def input_bidder():
     global active_auction
@@ -31,6 +32,7 @@ def input_bidder():
     additional_bidder = input("Are there any other bidders ? Type Yes or No \n").lower()
   
     if additional_bidder == "yes":
+        clear()
         input_bidder()
     else:
         active_auction = False
@@ -39,14 +41,14 @@ def highest_bidder():
     global highest_bidder
     global highest_bid
     for k, v in bidders.items():
-        if v> highest_bid:
+        if v > highest_bid:
             highest_bidder = k
             highest_bid = v
-    clear()
     print(f"The highest bidder is {highest_bidder} with a bid of $ {highest_bid}.")
 
 while active_auction:
     input_bidder()
     highest_bidder()
+
 
 
