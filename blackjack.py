@@ -45,17 +45,22 @@ def clear_data():
   
 def who_won():
   replit.clear()
-  while sum(computer_cards) < 20:
+  while sum(computer_cards) < 21:
     computer_cards.extend([int_generator()])
   sum_cards()
   print(f"Your final hand: {user_cards}, final score: {user_total}")
   print(f"Computer's final hand: {computer_cards}, final score: {computer_total}")
   if user_total > computer_total and user_total <= 21:
     print("You win! 🥳 ")
+  elif computer_total > user_total and computer_total <= 21:
+    print("Computer wins! 👾")
   elif user_total == computer_total:
     print("It's a draw! 🧐")
   else:
-    print("other situation")
+    if user_total > computer_total:
+      print ("Computer wins!! ")
+    else: 
+      print("You win!! ")
   clear_data()
   play_blackjack()
     
@@ -66,12 +71,14 @@ def another_one():
     new_num = int_generator()
     if sum(user_cards) == 20 and new_num == 11:
       user_cards.extend([1])
+    elif sum(user_cards) > 21:
+      print("You lose :(")
+      another_one()
     else:
       user_cards.extend([new_num])
       computer_cards.extend([int_generator()])
     sum_cards()
     print(f"Your cards: {user_cards}, current score: {user_total}")
-    print(f"Computer's cards: {computer_cards}, current score: {computer_total}")
     if sum(user_cards) < 21:
       another_one()
     else:
@@ -99,5 +106,6 @@ def play_blackjack():
     print("Maybe next time! Thank you for visiting")
 
 play_blackjack()
+
 
 
