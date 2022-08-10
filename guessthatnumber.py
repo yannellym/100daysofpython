@@ -42,7 +42,8 @@ def welcome_user():
   return input("Choose a difficulty. Type 'easy' or 'hard' : \n").lower()
   
 def user_input():
-  return int(input("Guess the number: "))
+  user_guess = int(input("Guess the number: "))
+  return user_guess
 
 
 def guess_number():
@@ -68,10 +69,20 @@ def guess_number():
       replit.clear()
       print(game_over)
       print("Game Over ☹️ Sorry you lost! ")
+      continue_game = input("Play again? Type 'y' for yes or 'n' for no: ")
+      
+      if continue_game == 'y':
+        user_won = False
+        attempts_left = 0
+        difficulty_level =  ""
+        correct_number = 0
+        replit.clear()
+        guess_number()
+      else:
+          print("Goodbye. Thank you for playing! 🙂")
     else:
       replit.clear()
       attempts_left -= 1      
-      #print(f"You have {attempts_left} attempts left")  
       
       if number_guessed < correct_number:
         print(f"Too low :( Guess again. The num is {correct_number}")
@@ -95,6 +106,9 @@ def guess_number():
       print(f"You have {attempts_left} attempts left") 
         
       number_guessed = user_input()
+
+
+
   
 
 guess_number()
