@@ -16,7 +16,6 @@ def use_resources(user_money, menu_item):
 
 
 def get_coffee(user_money, menu_item, user_input):
-    global order_again
     user_change = round(user_money - menu_item['cost'], 2)
     if user_change < 0:
         print("Sorry! You don't have enough money. Please accept your refund.")
