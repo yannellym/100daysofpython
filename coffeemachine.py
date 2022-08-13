@@ -2,23 +2,38 @@ from data import MENU, resources
 
 
 def clear():
-    print('\n' * 10)
+    print('\n' * 5)
 
 
-def get_coffee(user_money, menu_item, user_input):
+def use_resources(user_money, menu_item):
+    for i in resources:
+        if i in menu_item['ingredients']:
+            resources[i] = resources[i] - menu_item['ingredients'][i]
+    print(resources)
+
+
+def get_coffee(user_money, menu_item, user_input, another_order):
     user_change = round(user_money - menu_item['cost'], 2)
     if user_change < 0:
         print("Sorry! You don't have enough money. Please accept your refund.")
-        order_coffee()
     else:
+        use_resources(user_money, menu_item)
         print(f"${user_change} is your change.")
         print(f"Here is your {user_input} ☕️. Enjoy!")
-        return
+
+    order_again = input("Do you want to order another item? Type 'yes' or 'no': ").lower()
+    if order_again == "yes":
+        clear()
+        another_order = True
+    else:
+        clear()
+        another_order = False
+        print("Thank you for ordering, Goodbye! ")
 
 
-def order_coffee():
+def order_coffee(another_order):
     user_input = input("What would you like? espresso, latte, or cappuccino?: ").lower()
-    menu_item = MENU[user_input]
+
     if user_input == 'report':
         for i in resources:
             print(i, ":", resources[i])
@@ -26,10 +41,13 @@ def order_coffee():
         print("Powering Off. Goodbye!")
     else:
         clear()
+        menu_item = MENU[user_input]
         for i in menu_item['ingredients']:
             for j in resources:
                 if resources[j] < menu_item['ingredients'][i]:
-                    print("not enough")
+                    print(f"Sorry! We do not have enough {j} for your order")
+                    print("Please order another item.")
+                    order_coffee(another_order)
                 else:
                     clear()
                     print(f"The {user_input} costs ${menu_item['cost']} ")
@@ -42,8 +60,11 @@ def order_coffee():
 
                     clear()
                     print(f"You gave me ${user_money} in total. ")
-                    return get_coffee(user_money, menu_item, user_input)
+                    return get_coffee(user_money, menu_item, user_input, another_order)
 
 
-order_coffee()
+another_order = True
+
+while another_order:
+    order_coffee(another_order)
 
