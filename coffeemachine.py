@@ -9,6 +9,7 @@ def use_resources(user_money, menu_item):
     for i in resources:
         if i in menu_item['ingredients']:
             resources[i] = resources[i] - menu_item['ingredients'][i]
+    resources['money'] += menu_item['cost']
     print(resources)
 
 
@@ -16,6 +17,7 @@ def get_coffee(user_money, menu_item, user_input, another_order):
     user_change = round(user_money - menu_item['cost'], 2)
     if user_change < 0:
         print("Sorry! You don't have enough money. Please accept your refund.")
+        print(f"Total refund: ${user_money}")
     else:
         use_resources(user_money, menu_item)
         print(f"${user_change} is your change.")
@@ -67,4 +69,5 @@ another_order = True
 
 while another_order:
     order_coffee(another_order)
+
 
