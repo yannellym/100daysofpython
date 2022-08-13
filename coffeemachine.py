@@ -1,7 +1,5 @@
 from data import MENU, resources
 
-order_again = True
-
 
 def clear():
     print('\n' * 5)
@@ -16,6 +14,7 @@ def use_resources(user_money, menu_item):
 
 
 def get_coffee(user_money, menu_item, user_input):
+    global order_again
     user_change = round(user_money - menu_item['cost'], 2)
     if user_change < 0:
         print("Sorry! You don't have enough money. Please accept your refund.")
@@ -56,10 +55,10 @@ def order_coffee():
                     clear()
                     print(f"The {user_input} costs ${menu_item['cost']} ")
                     print("Please insert coins.")
-                    user_quarters = int(input("How many quarters?: ")) * .25
-                    user_dimes = int(input("How many dimes?: ")) * .10
-                    user_nickles = int(input("How many nickles?: ")) * .05
-                    user_pennies = int(input("How many pennies?: ")) * .01
+                    user_quarters = int(input("How many quarters?: ")) * 0.25
+                    user_dimes = int(input("How many dimes?: ")) * 0.1
+                    user_nickles = int(input("How many nickles?: ")) * 0.05
+                    user_pennies = int(input("How many pennies?: ")) * 0.01
                     user_money = sum([user_pennies, user_nickles, user_dimes, user_quarters])
 
                     clear()
@@ -67,6 +66,7 @@ def order_coffee():
                     return get_coffee(user_money, menu_item, user_input)
 
 
+order_again = True
+
 while order_again:
     order_coffee()
-
