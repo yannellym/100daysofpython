@@ -1,5 +1,7 @@
 from data import MENU, resources
 
+order_again = True
+
 
 def clear():
     print('\n' * 5)
@@ -13,7 +15,8 @@ def use_resources(user_money, menu_item):
     print(resources)
 
 
-def get_coffee(user_money, menu_item, user_input, another_order):
+def get_coffee(user_money, menu_item, user_input):
+    global order_again
     user_change = round(user_money - menu_item['cost'], 2)
     if user_change < 0:
         print("Sorry! You don't have enough money. Please accept your refund.")
@@ -23,17 +26,17 @@ def get_coffee(user_money, menu_item, user_input, another_order):
         print(f"${user_change} is your change.")
         print(f"Here is your {user_input} ☕️. Enjoy!")
 
-    order_again = input("Do you want to order another item? Type 'yes' or 'no': ").lower()
-    if order_again == "yes":
+    user_wish = input("Do you want to order another item? Type 'yes' or 'no': ").lower()
+    if user_wish == "yes":
         clear()
-        another_order = True
+        order_again = True
     else:
         clear()
-        another_order = False
+        order_again = False
         print("Thank you for ordering, Goodbye! ")
 
 
-def order_coffee(another_order):
+def order_coffee():
     user_input = input("What would you like? espresso, latte, or cappuccino?: ").lower()
 
     if user_input == 'report':
@@ -49,7 +52,7 @@ def order_coffee(another_order):
                 if resources[j] < menu_item['ingredients'][i]:
                     print(f"Sorry! We do not have enough {j} for your order")
                     print("Please order another item.")
-                    order_coffee(another_order)
+                    order_coffee()
                 else:
                     clear()
                     print(f"The {user_input} costs ${menu_item['cost']} ")
@@ -62,12 +65,9 @@ def order_coffee(another_order):
 
                     clear()
                     print(f"You gave me ${user_money} in total. ")
-                    return get_coffee(user_money, menu_item, user_input, another_order)
+                    return get_coffee(user_money, menu_item, user_input)
 
 
-another_order = True
-
-while another_order:
-    order_coffee(another_order)
-
+while order_again:
+    order_coffee()
 
