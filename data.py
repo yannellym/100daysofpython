@@ -1,16 +1,38 @@
 question_data = [
-    {"text": "A slug's blood is green.", "answer": "True"},
-    {"text": "The loudest animal is the African Elephant.", "answer": "False"},
-    {"text": "Approximately one quarter of human bones are in the feet.", "answer": "True"},
-    {"text": "The total surface area of a human lungs is the size of a football pitch.", "answer": "True"},
-    {"text": "In West Virginia, USA, if you accidentally hit an animal with your car, "
-             "you are free to take it home to eat.", "answer": "True"},
-    {"text": "In London, UK, if you happen to die in the House of Parliament, you are entitled to a state funeral.",
-     "answer": "False"},
-    {"text": "It is illegal to pee in the Ocean in Portugal.", "answer": "True"},
-    {"text": "You can lead a cow down stairs but not up stairs.", "answer": "False"},
-    {"text": "Google was originally called 'Backrub'.", "answer": "True"},
-    {"text": "Buzz Aldrin's mother's maiden name was 'Moon'.", "answer": "True"},
-    {"text": "No piece of square dry paper can be folded in half more than 7 times.", "answer": "False"},
-    {"text": "A few ounces of chocolate can to kill a small dog.", "answer": "True"}
-]
+    {"category": "Entertainment: Cartoon & Animations",
+     "type": "boolean",
+     "difficulty": "easy",
+     "question": "In the &quot;Shrek&quot; film franchise, Donkey is played by Eddie Murphy.",
+     "correct_answer": "True",
+     "incorrect_answers": ["False"]
+     },
+    {"category": "Entertainment: Cartoon & Animations", "type": "boolean", "difficulty": "easy",
+     "question": "Bill Cipher in the show &quot;Gravity Falls&quot; is the good guy.",
+     "correct_answer": "False", "incorrect_answers": ["True"]},
+    {"category": "Entertainment: Cartoon & Animations", "type": "boolean", "difficulty": "medium",
+     "question": "Nickelodeon rejected the pilot to Adventure Time.", "correct_answer": "True",
+     "incorrect_answers": ["False"]},
+    {"category": "Entertainment: Cartoon & Animations", "type": "boolean", "difficulty": "easy",
+     "question": "Waylon Smithers from &quot;The Simpsons&quot; was originally black when he first "
+                 "appeared in the series.",
+     "correct_answer": "True", "incorrect_answers": ["False"]},
+    {"category": "Entertainment: Cartoon & Animations", "type": "boolean", "difficulty": "medium",
+     "question": "Donald Duck played the role of Bob Cratchit in Disney&#039;s 1983 adaptation of A Christmas Carol.",
+     "correct_answer": "False", "incorrect_answers": ["True"]},
+    {"category": "Entertainment: Cartoon & Animations", "type": "boolean", "difficulty": "medium",
+     "question": "Night on Bald Mountain was one of the musical pieces featured in Disney&#039;s 1940&#039;s film "
+                 "Fantasia.",
+     "correct_answer": "True", "incorrect_answers": ["False"]},
+    {"category": "Entertainment: Cartoon & Animations", "type": "boolean", "difficulty": "medium",
+     "question": "Nutcracker Suite was one of the musical pieces featured in Disney&#039;s 1940&#039;s film Fantasia.",
+     "correct_answer": "True", "incorrect_answers": ["False"]},
+    {"category": "Entertainment: Cartoon & Animations", "type": "boolean", "difficulty": "medium",
+     "question": "Blue Danube was one of the musical pieces featured in Disney&#039;s 1940&#039;s film Fantasia.",
+     "correct_answer": "False", "incorrect_answers": ["True"]},
+    {"category": "Entertainment: Cartoon & Animations", "type": "boolean", "difficulty": "medium",
+     "question": "Snagglepuss was part of the Yogi Yahooies in the 1977 show Scooby&#039;s All-Star Laff-a-Lympics.",
+     "correct_answer": "False", "incorrect_answers": ["True"]},
+    {"category": "Entertainment: Cartoon & Animations", "type": "boolean", "difficulty": "medium",
+     "question": "In &quot;Avatar: The Last Airbender&quot; and &quot;The Legend of Korra&quot;, Lavabending is "
+                 "a specialized bending technique of Firebending.",
+     "correct_answer": "False", "incorrect_answers": ["True"]}]
